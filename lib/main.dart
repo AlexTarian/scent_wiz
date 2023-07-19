@@ -40,8 +40,8 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Splash Screen',
-            theme: lightTheme,
-            darkTheme: MyApp.aestheticMode ? aestheticTheme : darkTheme,
+            theme: darkTheme,
+            darkTheme: MyApp.aestheticMode ? aestheticTheme : lightTheme,
             themeMode: currentMode,
             home: SplashScreen(),
           );

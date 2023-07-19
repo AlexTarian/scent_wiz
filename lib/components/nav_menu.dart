@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scent_wiz/constants.dart';
 import 'package:scent_wiz/views/home_screen.dart';
+import 'package:scent_wiz/views/settings_screen.dart';
 
 
 class NavDrawer extends StatelessWidget {
@@ -9,7 +10,7 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).primaryColorDark.withOpacity(0.80),
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -17,7 +18,7 @@ class NavDrawer extends StatelessWidget {
             height: 117.0,
             child: DrawerHeader(
               decoration: BoxDecoration(
-                color: themeColor,
+                color: Theme.of(context).appBarTheme.backgroundColor,
               ),
               child: const Center(
                 child: Text(
@@ -28,7 +29,7 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            iconColor: themeColor,
+            iconColor: Theme.of(context).primaryColor,
             leading: Icon(
               Icons.home,
               color: Theme.of(context).primaryColor,
@@ -41,6 +42,22 @@ class NavDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+            },
+          ),
+          ListTile(
+            iconColor: Theme.of(context).primaryColor,
+            leading: Icon(
+              Icons.settings,
+              color: Theme.of(context).primaryColor,
+            ),
+            title: const Text('Settings',
+              style: TextStyle(
+                fontSize: 20.0,
+              ),
+            ),
+            onTap: () {
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => SettingsScreen()));
             },
           ),
         ],

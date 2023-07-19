@@ -20,11 +20,9 @@ class SplashScreenState extends State<SplashScreen> {
             context, MaterialPageRoute(builder: (context) => const HomeScreen()))
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -33,9 +31,9 @@ class SplashScreenState extends State<SplashScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Theme.of(context).scaffoldBackgroundColor,
-                Theme.of(context).primaryColorLight,
                 Theme.of(context).primaryColorDark,
+                Theme.of(context).primaryColorLight,
+                Theme.of(context).scaffoldBackgroundColor,
               ],
             )
         ),

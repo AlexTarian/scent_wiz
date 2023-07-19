@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scent_wiz/constants.dart';
 import 'package:scent_wiz/components/custom_app_bar.dart';
 import 'package:scent_wiz/components/nav_menu.dart';
 import 'package:scent_wiz/components/icon_box_button.dart';
-import 'package:scent_wiz/views/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,51 +18,42 @@ class _HomeScreenState extends State<HomeScreen> {
       drawerEnableOpenDragGesture: false,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(85.0),
-        child: Builder(
-            builder: (context) {
-              return customAppBar(
-                  iconR: Icons.help,
-                  onPressedR: () {
-
-                  }
-              );
-            }
-        ),
+        child: Builder(builder: (context) {
+          return customAppBar(iconR: Icons.help, onPressedR: () {});
+        }),
       ),
-      body: SafeArea(
-        minimum: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Container(
-            height: double.infinity,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Theme.of(context).scaffoldBackgroundColor,
-                    Theme.of(context).primaryColorLight,
-                    Theme.of(context).primaryColorDark,
-                  ],
-                )
-            ),
+      body: Center(
+        child: Container(
+          height: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Theme.of(context).primaryColorDark,
+              Theme.of(context).primaryColorLight,
+              Theme.of(context).scaffoldBackgroundColor,
+            ],
+          )),
+          child: SafeArea(
+            minimum: const EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
                 const SizedBox(height: 20.0),
-                const Text('SCENT WIZARD',
+                const Text(
+                  'SCENT WIZARD',
                   style: TextStyle(
                     //fontFamily: 'PermanentMarker',
                     fontSize: 50.0,
                   ),
                 ),
-                const SizedBox(height: 30.0),
+                const SizedBox(height: 50.0),
                 GestureDetector(
                   child: const IconBoxButton(
                     icon: Icons.person,
                     text: 'Scent Profile',
                   ),
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                 ),
                 const SizedBox(height: 30.0),
                 GestureDetector(
@@ -73,9 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icons.search,
                     text: 'Find a Scent',
                   ),
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                 ),
                 const SizedBox(height: 30.0),
                 GestureDetector(
@@ -83,21 +69,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icons.list,
                     text: 'Browse Scents',
                   ),
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                 ),
                 const SizedBox(height: 30.0),
-                GestureDetector(
-                  child: const IconBoxButton(
-                    icon: Icons.settings,
-                    text: 'Settings',
-                  ),
-                  onTap: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => (SettingsScreen())));
-                  },
-                ),
+
               ],
             ),
           ),

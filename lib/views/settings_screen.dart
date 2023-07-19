@@ -42,14 +42,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Theme.of(context).scaffoldBackgroundColor,
-                  Theme.of(context).primaryColorLight,
                   Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight,
+                  Theme.of(context).scaffoldBackgroundColor,
                 ],
-              )
-          ),
+              )),
           child: SafeArea(
-            minimum: const EdgeInsets.all(20.0),
+            minimum: EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
                 TextButton(
@@ -58,14 +57,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: Row(
                         children: <Widget>[
                           Icon(MyApp.themeNotifier.value == ThemeMode.light
-                              ? Icons.dark_mode
-                              : Icons.light_mode,
+                              ? Icons.light_mode
+                              : Icons.dark_mode,
                               color: Theme.of(context).primaryColor),
                           const SizedBox(width: 25.0),
                           Text(
                             MyApp.themeNotifier.value == ThemeMode.light
-                                ? 'Switch to Dark Mode'
-                                : 'Switch to Light Mode',
+                                ? 'Switch to Light Mode'
+                                : 'Switch to Dark Mode',
                             style: TextStyle(fontSize: 20.0, color: Theme.of(context).primaryColor),
                           ),
                         ],
@@ -96,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           style: AlertStyle(
                             isCloseButton: false,
                             titleStyle: TextStyle(
-                              color: Color(0xFF7e00ff),
+                              color: Color(0xFFce65ba),
                             ),
                           ),
                           title: MyApp.aestheticMode
@@ -104,7 +103,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               : 'a e s t h e t i c: Disabled',
                           buttons: [
                             DialogButton(
-                              color: Color(0xFF7e00ff),
+                              color: Color(0xFFce65ba),
                               child: Text(MyApp.aestheticMode ? 'Rad!' : 'Okay',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20.0),
