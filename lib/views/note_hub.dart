@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:scent_wiz/components/custom_app_bar.dart';
 import 'package:scent_wiz/components/nav_menu.dart';
 import 'package:scent_wiz/components/icon_box_button.dart';
-import 'package:scent_wiz/services/quiz_engine.dart';
-import 'package:scent_wiz/views/scent_quiz.dart';
+import 'package:scent_wiz/views/scent_profile_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NoteHubScreen extends StatelessWidget {
+  const NoteHubScreen({
+    super.key,
+    required this.preferenceData
+  });
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  final TextEditingController preferenceData;
 
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,58 +28,55 @@ class _HomeScreenState extends State<HomeScreen> {
           height: double.infinity,
           decoration: BoxDecoration(
               gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Theme.of(context).primaryColorDark,
-              Theme.of(context).primaryColorLight,
-              Theme.of(context).scaffoldBackgroundColor,
-            ],
-          )),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Theme.of(context).primaryColorDark,
+                  Theme.of(context).primaryColorLight,
+                  Theme.of(context).scaffoldBackgroundColor,
+                ],
+              )),
           child: SafeArea(
             minimum: const EdgeInsets.all(20.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                const SizedBox(height: 20.0),
-                const Text(
-                  'SCENT WIZARD',
-                  style: TextStyle(
-                    //fontFamily: 'PermanentMarker',
-                    fontSize: 50.0,
-                  ),
-                ),
                 const SizedBox(height: 50.0),
                 GestureDetector(
                   child: const IconBoxButton(
-                    icon: Icons.person,
-                    text: 'Scent Profile',
+                    icon: Icons.check_circle,
+                    text: 'Notes You Like',
                   ),
                   onTap: () {
-                    setState(() {
-                      quizEngine.questionNumber = 0;
-                    });
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const ScentQuizScreen()));
+                    
                   },
                 ),
                 const SizedBox(height: 30.0),
                 GestureDetector(
                   child: const IconBoxButton(
-                    icon: Icons.search,
-                    text: 'Find a Scent',
+                    icon: Icons.do_not_disturb_alt,
+                    text: 'Notes You Don\'t Like',
                   ),
                   onTap: () {},
                 ),
                 const SizedBox(height: 30.0),
                 GestureDetector(
                   child: const IconBoxButton(
-                    icon: Icons.list,
-                    text: 'Browse Scents',
+                    icon: Icons.arrow_circle_right,
+                    text: 'Go to Summary',
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (context) => ScentProfileScreen(
+                      floralScore: 0.0,
+                      freshScore: 0.0,
+                      orientalScore: 4.0,
+                      woodyScore: 2.0,
+                    )));
+                  },
                 ),
-                const SizedBox(height: 30.0),
-
+                const SizedBox(height: 50),
+                Text(preferenceData.text),
               ],
             ),
           ),

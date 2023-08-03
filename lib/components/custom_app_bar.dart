@@ -34,8 +34,7 @@ class customAppBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: onPressedR,
-            child: Icon(
-              iconR,
+            child: Icon(Icons.shopping_cart_outlined,
               color: Colors.white,
               size: 45.0,
             ),

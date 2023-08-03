@@ -23,6 +23,28 @@ class IconBoxButton extends StatelessWidget {
           height: 65.0,
           width: double.infinity,
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            gradient: LinearGradient(
+              stops: <double>[progress, progress],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: <Color>[
+                Theme.of(context).primaryColor.withOpacity(0.33),
+                Colors.transparent,
+              ],
+            ),
+          ),
+          child: Row(
+            children: <Widget>[
+              SizedBox(width: 75.0),
+              Text(''),
+            ],
+          ),
+        ),
+        Container(
+          height: 65.0,
+          width: double.infinity,
+          decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(40)),
             border: Border.all(color: Theme.of(context).primaryColor, width: 3),
           ),
