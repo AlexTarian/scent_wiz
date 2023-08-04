@@ -3,14 +3,19 @@ import 'package:scent_wiz/components/custom_app_bar.dart';
 import 'package:scent_wiz/components/nav_menu.dart';
 import 'package:scent_wiz/components/icon_box_button.dart';
 import 'package:scent_wiz/views/scent_profile_screen.dart';
+import 'package:scent_wiz/services/word_count.dart';
 
 class NoteHubScreen extends StatelessWidget {
-  const NoteHubScreen({
+  NoteHubScreen({
     super.key,
     required this.preferenceData
   });
 
   final TextEditingController preferenceData;
+  int floralCount = 0;
+  int freshCount = 0;
+  int orientalCount = 0;
+  int woodyCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class NoteHubScreen extends StatelessWidget {
                     text: 'Notes You Like',
                   ),
                   onTap: () {
-                    
+
                   },
                 ),
                 const SizedBox(height: 30.0),
@@ -66,13 +71,27 @@ class NoteHubScreen extends StatelessWidget {
                     text: 'Go to Summary',
                   ),
                   onTap: () {
+                    // Count word instances
+                    Map<String, int> wordFrequency = countWords(preferenceData.text);
+
+                    // Retrieve word counts or default to 0 if the word is not found
+                    floralCount = wordFrequency['floral'] ?? 0;
+                    freshCount = wordFrequency['fresh'] ?? 0;
+                    orientalCount = wordFrequency['oriental'] ?? 0;
+                    woodyCount = wordFrequency['woody'] ?? 0;
+
+                    // Navigate to ScentProfileScreen with the calculated word counts
                     Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => ScentProfileScreen(
-                      floralScore: 0.0,
-                      freshScore: 0.0,
-                      orientalScore: 4.0,
-                      woodyScore: 2.0,
-                    )));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ScentProfileScreen(
+                          floralScore: floralCount.toDouble(),
+                          freshScore: freshCount.toDouble(),
+                          orientalScore: orientalCount.toDouble(),
+                          woodyScore: woodyCount.toDouble(),
+                        ),
+                      ),
+                    );
                   },
                 ),
                 const SizedBox(height: 50),

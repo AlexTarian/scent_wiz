@@ -52,51 +52,49 @@ class QuizEngine {
     ),
     Question(q: 'Which scent appeals to you most?',
       oA: 'Orange Blossom',
-      rA: '$floral+Orange Blossom,',
+      rA: '${floral}Orange Blossom,',
       oB: 'Bergamot',
-      rB: '$fresh+Bergamot,',
+      rB: '${fresh}Bergamot,',
       oC: 'Amber',
-      rC: '$oriental+Amber,',
+      rC: '${oriental}Amber,',
       oD: 'Sandalwood',
-      rD: '$woody+Sandalwood,',
+      rD: '${woody}Sandalwood,',
     ),
     Question(q: 'Which scent appeals to you most?',
       oA: 'Jasmine',
-      rA: '$floral+Jasmine,',
+      rA: '${floral}Jasmine,',
       oB: 'The Ocean',
-      rB: '$fresh+Ocean,',
+      rB: '${fresh}Ocean,',
       oC: 'Clove',
-      rC: '$oriental+Clove,',
+      rC: '${oriental}Clove,',
       oD: 'Leather',
-      rD: '$woody+Leather,',
+      rD: '${woody}Leather,',
     ),
     Question(q: 'Which scent appeals to you most?',
       oA: 'Rose',
-      rA: '$floral+Rose,',
+      rA: '${floral}Rose,',
       oB: 'Spearmint',
-      rB: '$fresh+Spearmint,',
+      rB: '${fresh}Spearmint,',
       oC: 'Cinnamon',
-      rC: '$oriental+Cinnamon,',
+      rC: '${oriental}Cinnamon,',
       oD: 'Musk',
-      rD: '$woody+Musk,',
+      rD: '${woody}Musk,',
     ),
     Question(q: 'Which scent appeals to you most?',
       oA: 'Rose',
-      rA: '$floral+Rose,',
+      rA: '${floral}Rose,',
       oB: 'Spearmint',
-      rB: '$fresh+Spearmint,',
+      rB: '${fresh}Spearmint,',
       oC: 'Cinnamon',
-      rC: '$oriental+Cinnamon,',
+      rC: '${oriental}Cinnamon,',
       oD: 'Musk',
-      rD: '$woody+Musk,',
+      rD: '${woody}Musk,',
     ),
   ];
 
   void nextQuestion() {
     if (questionNumber < questionBank.length) {
       questionNumber++;
-    } else {
-
     }
   }
 
@@ -129,12 +127,9 @@ class QuizEngine {
     return questionBank[questionNumber].resultD;
   }
 
-
   bool isFinished() {
     if (questionNumber >= questionBank.length-1) {
-
       return true;
-
     } else {
       return false;
     }

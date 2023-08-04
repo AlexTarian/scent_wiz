@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scent_wiz/components/custom_app_bar.dart';
 import 'package:scent_wiz/components/nav_menu.dart';
 import 'package:scent_wiz/components/icon_box_button.dart';
+import 'package:scent_wiz/services/quiz_engine.dart';
 
 
 class ScentProfileScreen extends StatelessWidget {
@@ -46,13 +47,14 @@ class ScentProfileScreen extends StatelessWidget {
             minimum: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: 50.0),
                 GestureDetector(
                   child: IconBoxButton(
                     icon: Icons.brightness_7_rounded,
-                    text: 'Floral',
-                    progress: floralScore/6,
+                    text: 'Floral  (${((floralScore/(quizEngine.questionBank.length-2))*100).toStringAsFixed(0)}%)',
+                    progress: floralScore/(quizEngine.questionBank.length-2),
                   ),
                   onTap: () {
 
@@ -62,8 +64,8 @@ class ScentProfileScreen extends StatelessWidget {
                 GestureDetector(
                   child: IconBoxButton(
                     icon: Icons.water_drop_rounded,
-                    text: 'Fresh',
-                    progress: freshScore/6,
+                    text: 'Fresh  (${((freshScore/(quizEngine.questionBank.length-2))*100).toStringAsFixed(0)}%)',
+                    progress: freshScore/(quizEngine.questionBank.length-2),
                   ),
                   onTap: () {
 
@@ -73,8 +75,8 @@ class ScentProfileScreen extends StatelessWidget {
                 GestureDetector(
                   child: IconBoxButton(
                     icon: Icons.local_fire_department,
-                    text: 'Oriental',
-                    progress: orientalScore/6,
+                    text: 'Oriental  (${((orientalScore/(quizEngine.questionBank.length-2))*100).toStringAsFixed(0)}%)',
+                    progress: orientalScore/(quizEngine.questionBank.length-2),
                   ),
                   onTap: () {
 
@@ -84,12 +86,16 @@ class ScentProfileScreen extends StatelessWidget {
                 GestureDetector(
                   child: IconBoxButton(
                     icon: Icons.nature,
-                    text: 'Woody',
-                    progress: woodyScore/6,
+                    text: 'Woody  (${((woodyScore/(quizEngine.questionBank.length-2))*100).toStringAsFixed(0)}%)',
+                    progress: woodyScore/(quizEngine.questionBank.length-2),
                   ),
                   onTap: () {
 
                   },
+                ),
+                const SizedBox(height: 50.0),
+                const Text('Recommended Scents:',
+                style: TextStyle(fontSize: 30.0),
                 ),
               ],
             ),
