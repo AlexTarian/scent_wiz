@@ -199,7 +199,7 @@ class _ScentQuizScreenState extends State<ScentQuizScreen> {
                       ],
                     ),
                     const SizedBox(height: 50),
-                    Text('${quizEngine.questionNumber}/${quizEngine.questionBank.length} \n ${preferenceData.text}'),
+                    Text('${quizEngine.questionNumber}/${quizEngine.questionBank.length-1} \n ${preferenceData.text}'),
                   ],
                 ),
               ],

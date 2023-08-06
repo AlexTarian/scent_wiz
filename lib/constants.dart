@@ -37,7 +37,7 @@ final ThemeData darkTheme = ThemeData(
   splashColor: Color(0xFF327087),
   fontFamily: 'Kodchasan',
   brightness: Brightness.dark,
-  dialogBackgroundColor: const Color(0xFF222222),
+  dialogBackgroundColor: const Color(0xFFffffff),
   textTheme: const TextTheme(
     bodyText1: TextStyle(),
     bodyText2: TextStyle(),

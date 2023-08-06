@@ -4,6 +4,7 @@ import 'package:scent_wiz/components/nav_menu.dart';
 import 'package:scent_wiz/components/icon_box_button.dart';
 import 'package:scent_wiz/services/quiz_engine.dart';
 import 'package:scent_wiz/views/scent_quiz.dart';
+import 'package:scent_wiz/views/scent_browser_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'SCENT WIZARD',
                   style: TextStyle(
                     //fontFamily: 'PermanentMarker',
-                    fontSize: 50.0,
+                    fontSize: 30.0,
                   ),
                 ),
                 const SizedBox(height: 50.0),
@@ -77,7 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: Icons.list,
                     text: 'Browse Scents',
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (context) => const ScentBrowserScreen()));
+                  },
                 ),
                 const SizedBox(height: 30.0),
 
